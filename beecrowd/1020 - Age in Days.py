@@ -1,8 +1,0 @@
-value = int(input())
-years = int(value / 365)
-extra = int(value % 365)
-months = int(extra / 30)
-extra2 = int(extra % 30)
-print(years, "ano(s)")
-print(months, "mes(es)")
-print(extra2, "dia(s)")
