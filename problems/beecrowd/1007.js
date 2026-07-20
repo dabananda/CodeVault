@@ -1,0 +1,6 @@
+var a = parseInt(readline())
+var b = parseInt(readline())
+var c = parseInt(readline())
+var d = parseInt(readline())
+var res = (a * b) - (c * d)
+console.log("DIFERENCA = " + res)

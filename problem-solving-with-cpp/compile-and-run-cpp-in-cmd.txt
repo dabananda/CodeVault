@@ -1,2 +1,0 @@
-01. g++ -o file_name file_name.cpp
-02. ./file_name.exe
