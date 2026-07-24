@@ -64,11 +64,11 @@ Current languages:
 | LeetCode | 166 |
 | BeeCrowd | 70 |
 | Coding Ninjas | 51 |
-| UVA | 46 |
+| UVA | 43 |
 | CodeChef | 16 |
 | GeeksforGeeks | 12 |
 | VJudge | 12 |
-| **Total** | **859** |
+| **Total** | **856** |
 <!-- END_PLATFORM_STATS -->
 
 ---
@@ -88,7 +88,7 @@ Current languages:
 | **Total** | **913** |
 <!-- END_LANGUAGE_STATS -->
 
-Last updated: <!-- START_LAST_UPDATED -->2026-07-24 06:19 UTC<!-- END_LAST_UPDATED -->
+Last updated: <!-- START_LAST_UPDATED -->2026-07-24 06:29 UTC<!-- END_LAST_UPDATED -->
 
 ---
 

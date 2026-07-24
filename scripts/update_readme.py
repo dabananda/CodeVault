@@ -4,21 +4,25 @@ Auto-updates README.md with:
   - number of solved solutions per language (by file extension)
 
 A "problem" is counted like this:
-  - A code file sitting directly inside a platform folder counts as
-    one problem (grouped by its filename without extension).
-  - A code file inside a sub-folder is grouped by that sub-folder UNLESS
-    the file has a generic name (main, solution, sol, program, code,
-    index) - in that case the sub-folder itself is treated as "the
-    problem" (this correctly handles layouts like
-    problems/uva/<problem name>/main.cpp).
-    Otherwise (descriptive file names inside a topic sub-folder, e.g.
-    problems/geeksforgeeks/graph/DFS of Graph.cpp) each file is its own
-    problem.
 
-This keeps counts correct whether a platform stores solutions as flat
-files (leetcode, codeforces, hackerrank, ...), as one-folder-per-problem
-(uva), or as topic sub-folders containing many individual problems
-(geeksforgeeks).
+  PROBLEM_FOLDER_PLATFORMS (e.g. leetcode, uva):
+    Each immediate subdirectory of the platform folder is exactly one problem.
+    All language files inside that folder count as the SAME problem.
+    e.g. leetcode/1_Two_Sum/1_Two_Sum.cpp  }
+         leetcode/1_Two_Sum/1_Two_Sum.cs   } -> 1 problem
+         leetcode/1_Two_Sum/1_Two_Sum.py   }
+
+  Other platforms (flat layout, e.g. codeforces, hackerrank, beecrowd):
+    A code file sitting directly inside the platform folder counts as
+    one problem (grouped by filename stem).
+
+  Topic-subfolder platforms (e.g. geeksforgeeks, coding-ninjas):
+    A file with a descriptive name inside a topic subfolder is its own
+    problem (e.g. geeksforgeeks/graph/DFS of Graph.cpp).
+    A file with a generic name (main, solution, sol ...) inside any
+    subfolder -> the subfolder itself is treated as one problem.
+
+Language stats always count every solution file individually.
 """
 
 from pathlib import Path
@@ -55,6 +59,10 @@ LANGUAGE_EXTENSIONS = {
 
 GENERIC_FILE_STEMS = {"main", "solution", "sol", "program", "code", "index"}
 
+# Platforms where every immediate subdirectory = exactly one problem,
+# regardless of how many language files live inside that subdirectory.
+PROBLEM_FOLDER_PLATFORMS = {"leetcode", "uva"}
+
 
 def is_code_file(path: Path) -> bool:
     return path.suffix.lower() in LANGUAGE_EXTENSIONS
@@ -82,8 +90,14 @@ def count_platforms():
             if parent == platform:
                 # Flat file directly under the platform folder.
                 problem_keys.add(("file", parent, file.stem.lower()))
+            elif platform.name in PROBLEM_FOLDER_PLATFORMS:
+                # Each immediate child directory of this platform is one problem.
+                # Works whether files are named generically or descriptively.
+                rel = file.relative_to(platform)
+                problem_dir = platform / rel.parts[0]
+                problem_keys.add(("dir", problem_dir))
             elif file.stem.lower() in GENERIC_FILE_STEMS:
-                # e.g. problems/uva/<problem name>/main.cpp
+                # e.g. problems/uva/<problem name>/main.cpp (legacy)
                 # -> the folder itself is the problem.
                 problem_keys.add(("dir", parent))
             else:
