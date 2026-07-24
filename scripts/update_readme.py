@@ -149,7 +149,7 @@ def replace_between(text, start, end, replacement):
 platform_stats = count_platforms()
 language_stats = count_languages()
 
-platform_table = "| Platform | Problems |\n"
+platform_table = "| Platform | Solved |\n"
 platform_table += "|----------|---------:|\n"
 
 total_problems = 0
@@ -160,7 +160,7 @@ for platform, count in sorted(platform_stats.items(), key=lambda kv: -kv[1]):
 
 platform_table += f"| **Total** | **{total_problems}** |"
 
-language_table = "| Language | Solutions |\n"
+language_table = "| Language | Solved |\n"
 language_table += "|----------|----------:|\n"
 
 total_solutions = 0

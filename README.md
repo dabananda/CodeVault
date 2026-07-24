@@ -61,14 +61,14 @@ Current languages:
 |----------|---------:|
 | Codeforces | 296 |
 | HackerRank | 190 |
-| LeetCode | 168 |
+| LeetCode | 166 |
 | BeeCrowd | 70 |
 | Coding Ninjas | 51 |
 | UVA | 46 |
 | CodeChef | 16 |
 | GeeksforGeeks | 12 |
 | VJudge | 12 |
-| **Total** | **861** |
+| **Total** | **859** |
 <!-- END_PLATFORM_STATS -->
 
 ---
@@ -78,17 +78,17 @@ Current languages:
 <!-- START_LANGUAGE_STATS -->
 | Language | Solved |
 |----------|----------:|
-| C++ | 670 |
+| C++ | 668 |
 | C | 113 |
 | Java | 50 |
 | Python | 44 |
 | JavaScript | 19 |
 | C# | 11 |
 | SQL | 8 |
-| **Total** | **915** |
+| **Total** | **913** |
 <!-- END_LANGUAGE_STATS -->
 
-Last updated: <!-- START_LAST_UPDATED -->2026-07-20 15:18 UTC<!-- END_LAST_UPDATED -->
+Last updated: <!-- START_LAST_UPDATED -->2026-07-24 06:19 UTC<!-- END_LAST_UPDATED -->
 
 ---
 
