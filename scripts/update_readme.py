@@ -61,7 +61,14 @@ GENERIC_FILE_STEMS = {"main", "solution", "sol", "program", "code", "index"}
 
 # Platforms where every immediate subdirectory = exactly one problem,
 # regardless of how many language files live inside that subdirectory.
-PROBLEM_FOLDER_PLATFORMS = {"leetcode", "uva"}
+PROBLEM_FOLDER_PLATFORMS = {
+    "leetcode",
+    "uva",
+    "beecrowd",
+    "codechef",
+    "codeforces",
+    "hackerrank",
+}
 
 
 def is_code_file(path: Path) -> bool:
