@@ -71,9 +71,13 @@ CodeVault/
 
 ---
 
-## Problem Solving Statistics
+<!-- START_STATS -->
+<table>
+<tr>
+<td valign="top">
 
-<!-- START_PLATFORM_STATS -->
+### Problem Solving Statistics
+
 | Platform | Solved |
 |----------|---------:|
 | Codeforces | 296 |
@@ -86,13 +90,12 @@ CodeVault/
 | GeeksforGeeks | 12 |
 | VJudge | 12 |
 | **Total** | **842** |
-<!-- END_PLATFORM_STATS -->
 
----
+</td>
+<td valign="top">
 
-## Language Statistics
+### Language Statistics
 
-<!-- START_LANGUAGE_STATS -->
 | Language | Solved |
 |----------|----------:|
 | C++ | 668 |
@@ -103,9 +106,13 @@ CodeVault/
 | C# | 11 |
 | SQL | 8 |
 | **Total** | **913** |
-<!-- END_LANGUAGE_STATS -->
 
-> Last updated: <!-- START_LAST_UPDATED -->2026-07-24 06:47 UTC<!-- END_LAST_UPDATED -->
+</td>
+</tr>
+</table>
+<!-- END_STATS -->
+
+> Last updated: <!-- START_LAST_UPDATED -->2026-07-24 07:04 UTC<!-- END_LAST_UPDATED -->
 
 ---
 
