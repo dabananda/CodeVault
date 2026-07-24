@@ -36,25 +36,42 @@ Solve Once • Learn Forever • Implement Everywhere
 
 ---
 
-# About
+## About
 
-Welcome to **CodeVault**, my personal archive of competitive programming solutions, interview preparation, algorithms, and data structure implementations.
+**CodeVault** is my personal archive of competitive programming solutions, interview preparation problems, and DSA implementations — solved across multiple languages to understand each language's strengths and become a better engineer.
 
-My goal is to solve problems in multiple languages so I can understand each language's strengths and become a better software engineer.
-
-Current languages:
-
-* C
-* C++
-* C#
-* Java
-* Python
-* JavaScript
-* SQL
+**Languages used:** C · C++ · C# · Java · Python · JavaScript · SQL
 
 ---
 
-# Problem Solving Statistics
+## Repository Structure
+
+```
+CodeVault/
+├── problems/               # Solutions organised by platform
+│   ├── leetcode/           #   each problem in its own folder
+│   ├── codeforces/         #   {number}_{ProblemName}/
+│   ├── hackerrank/         #   └── solution files (multi-lang supported)
+│   ├── beecrowd/
+│   ├── codechef/
+│   ├── geeksforgeeks/      # topic subfolders → problem files
+│   ├── coding-ninjas/
+│   ├── uva/
+│   └── vjudge/
+├── roadmaps/               # Structured learning paths
+│   ├── neetcode-150/       #   topic/ → problem_folder/ → solution
+│   ├── therapbd/
+│   └── dsa/
+├── scripts/
+│   └── update_readme.py    # Auto-updates stats & progress in this file
+└── templates/
+    ├── addAuthorInfo.cpp
+    └── competitive_programming_template.cpp
+```
+
+---
+
+## Problem Solving Statistics
 
 <!-- START_PLATFORM_STATS -->
 | Platform | Solved |
@@ -73,7 +90,7 @@ Current languages:
 
 ---
 
-# Language Wise Statistics
+## Language Statistics
 
 <!-- START_LANGUAGE_STATS -->
 | Language | Solved |
@@ -88,13 +105,13 @@ Current languages:
 | **Total** | **913** |
 <!-- END_LANGUAGE_STATS -->
 
-Last updated: <!-- START_LAST_UPDATED -->2026-07-24 06:44 UTC<!-- END_LAST_UPDATED -->
+> Last updated: <!-- START_LAST_UPDATED -->2026-07-24 06:47 UTC<!-- END_LAST_UPDATED -->
 
 ---
 
-# Roadmap Progress
+## Roadmap Progress
 
-## NeetCode 150
+### NeetCode 150
 
 <!-- START_NEETCODE_150_PROGRESS -->
 ```
@@ -112,120 +129,28 @@ Progress: 51 / 150
 ```
 <!-- END_NEETCODE_150_PROGRESS -->
 
-## Blind 75
+---
 
-```
-Progress: 0 / 75
-□□□□□□□□□□ 0%
-```
+## Topics Covered
 
-## Striver SDE Sheet
-
-```
-Progress: 0 / 191
-□□□□□□□□□□ 0%
-```
+| Category | Topics |
+|----------|--------|
+| **Linear DS** | Arrays · Strings · Linked List · Stack · Queue · Deque |
+| **Non-linear DS** | Binary Tree · BST · Heap / Priority Queue · Trie · Segment Tree · Fenwick Tree |
+| **Algorithms** | Binary Search · Two Pointers · Sliding Window · Sorting |
+| **Graph** | BFS · DFS · Topological Sort · Shortest Path (Dijkstra, Bellman-Ford) · Union Find |
+| **Techniques** | Recursion · Backtracking · Greedy · Dynamic Programming (1-D & 2-D) |
+| **Math** | Number Theory · Bit Manipulation · Combinatorics · Geometry |
 
 ---
 
-# Checklist
+## Author
 
-## NeetCode 150
-
-* [ ] Arrays & Hashing
-* [ ] Two Pointers
-* [ ] Stack
-* [ ] Binary Search
-* [ ] Sliding Window
-* [ ] Linked List
-* [ ] Trees
-* [ ] Heap
-* [ ] Backtracking
-* [ ] Graphs
-* [ ] 1-D DP
-* [ ] 2-D DP
-* [ ] Greedy
-* [ ] Intervals
-* [ ] Advanced Graphs
-* [ ] Bit Manipulation
-* [ ] Math & Geometry
-* [ ] Tries
-
----
-
-## Blind 75
-
-* [ ] Array
-* [ ] Binary
-* [ ] Dynamic Programming
-* [ ] Graph
-* [ ] Interval
-* [ ] Linked List
-* [ ] Matrix
-* [ ] String
-* [ ] Tree
-* [ ] Heap
-
----
-
-## Striver SDE Sheet
-
-* [ ] Arrays
-* [ ] Linked List
-* [ ] Binary Tree
-* [ ] BST
-* [ ] Stack & Queue
-* [ ] Recursion
-* [ ] Backtracking
-* [ ] Greedy
-* [ ] Graph
-* [ ] Dynamic Programming
-* [ ] Trie
-* [ ] Strings
-
----
-
-# Topics Covered
-
-* Arrays
-* Strings
-* Hashing
-* Two Pointers
-* Sliding Window
-* Stack
-* Queue
-* Linked List
-* Trees
-* BST
-* Heap
-* Binary Search
-* Graph
-* BFS
-* DFS
-* Shortest Path
-* Topological Sort
-* Union Find
-* Segment Tree
-* Fenwick Tree
-* Trie
-* Greedy
-* Dynamic Programming
-* Recursion
-* Backtracking
-* Math
-* Number Theory
-* Bit Manipulation
-* Geometry
-
----
-
-# Author
-
-**<a href="https://dabananda.vercel.app" target="_blank">Dabananda Mitra (Debu)</a>**
+**[Dabananda Mitra (Debu)](https://dabananda.vercel.app)**
 
 Junior Software Engineer, LEADS Corporation Ltd
 
-* 💼 ASP.NET Core, SQL Server
-* ☕ Spring Boot, Oracle DB
-* 💙 C#, Java, C++
-* ⚡ Problem Solving, Software Architecture
+- 💼 ASP.NET Core · SQL Server
+- ☕ Spring Boot · Oracle DB
+- 💙 C# · Java · C++
+- ⚡ Problem Solving · Software Architecture
