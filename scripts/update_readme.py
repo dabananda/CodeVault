@@ -2,6 +2,7 @@
 Auto-updates README.md with:
   - number of solved problems per platform (problems/<platform>/...)
   - number of solved solutions per language (by file extension)
+  - roadmap progress bars (roadmaps/<name>/{topic}/{problem_folder}/)
 
 A "problem" is counted like this:
 
@@ -31,6 +32,7 @@ from datetime import datetime, timezone
 ROOT = Path(__file__).resolve().parent.parent
 README = ROOT / "README.md"
 PROBLEMS = ROOT / "problems"
+ROADMAPS = ROOT / "roadmaps"
 
 LANGUAGE_EXTENSIONS = {
     ".cpp": "C++",
@@ -137,6 +139,67 @@ def count_languages():
     return {lang: count for lang, count in stats.items() if count > 0}
 
 
+# ── Roadmap config ────────────────────────────────────────────────────────────
+# Each entry: roadmap folder name -> (display title, total target problems)
+# The roadmap folder uses a two-level layout: topic/ -> problem_folder/
+ROADMAP_CONFIG = {
+    "neetcode-150": ("NeetCode 150", 150),
+}
+
+
+def count_roadmap(name: str) -> dict:
+    """
+    Count solved problems in roadmaps/<name>.
+    Structure: roadmaps/<name>/<topic>/<problem_folder>/
+    A problem_folder that contains at least one code file = 1 solved problem.
+    Returns {topic_name: solved_count}.
+    """
+    roadmap_dir = ROADMAPS / name
+    if not roadmap_dir.exists():
+        return {}
+
+    topic_counts = {}
+    for topic in sorted(roadmap_dir.iterdir()):
+        if not topic.is_dir():
+            continue
+        # Each immediate subdirectory of the topic = one problem folder
+        solved = sum(
+            1 for prob in topic.iterdir()
+            if prob.is_dir() and any(is_code_file(f) for f in prob.rglob("*") if f.is_file())
+        )
+        if solved > 0:
+            topic_counts[topic.name] = solved
+
+    return topic_counts
+
+
+def progress_bar(solved: int, total: int, width: int = 20) -> str:
+    """Render a filled/empty Unicode progress bar."""
+    filled = int(width * solved / total) if total else 0
+    bar = "\u2588" * filled + "\u25a1" * (width - filled)
+    pct = round(100 * solved / total) if total else 0
+    return f"{bar} {pct}%"
+
+
+def build_roadmap_block(name: str) -> str:
+    """Build the full progress block string for a roadmap."""
+    title, total = ROADMAP_CONFIG[name]
+    topic_counts = count_roadmap(name)
+    solved = sum(topic_counts.values())
+
+    lines = [
+        f"Progress: {solved} / {total}",
+        progress_bar(solved, total),
+    ]
+    if topic_counts:
+        lines.append("")
+        for topic, count in topic_counts.items():
+            display = topic.replace("-", " ").title()
+            lines.append(f"  {display}: {count}")
+
+    return "```\n" + "\n".join(lines) + "\n```"
+
+
 PLATFORM_DISPLAY_NAMES = {
     "leetcode": "LeetCode",
     "codeforces": "Codeforces",
@@ -221,6 +284,13 @@ readme = readme.replace(
     f"<!-- START_LAST_UPDATED -->{last_updated}<!-- END_LAST_UPDATED -->",
 )
 
+# ── Roadmap progress blocks ────────────────────────────────────────────────
+for roadmap_name in ROADMAP_CONFIG:
+    start_marker = f"<!-- START_{roadmap_name.upper().replace('-', '_')}_PROGRESS -->"
+    end_marker   = f"<!-- END_{roadmap_name.upper().replace('-', '_')}_PROGRESS -->"
+    if start_marker in readme:
+        readme = replace_between(readme, start_marker, end_marker, build_roadmap_block(roadmap_name))
+
 README.write_text(readme, encoding="utf-8")
 
 print("README updated successfully.")
@@ -228,3 +298,6 @@ print(f"Total problems: {total_problems}")
 print(f"Total solutions: {total_solutions}")
 print("Platform breakdown:", dict(sorted(platform_stats.items(), key=lambda kv: -kv[1])))
 print("Language breakdown:", dict(sorted(language_stats.items(), key=lambda kv: -kv[1])))
+for rname, (rtitle, rtotal) in ROADMAP_CONFIG.items():
+    tc = count_roadmap(rname)
+    print(f"{rtitle}: {sum(tc.values())} / {rtotal} solved | by topic: {tc}")

@@ -88,7 +88,7 @@ Current languages:
 | **Total** | **913** |
 <!-- END_LANGUAGE_STATS -->
 
-Last updated: <!-- START_LAST_UPDATED -->2026-07-24 06:41 UTC<!-- END_LAST_UPDATED -->
+Last updated: <!-- START_LAST_UPDATED -->2026-07-24 06:44 UTC<!-- END_LAST_UPDATED -->
 
 ---
 
@@ -96,10 +96,21 @@ Last updated: <!-- START_LAST_UPDATED -->2026-07-24 06:41 UTC<!-- END_LAST_UPDAT
 
 ## NeetCode 150
 
+<!-- START_NEETCODE_150_PROGRESS -->
 ```
-Progress: 0 / 150
-□□□□□□□□□□ 0%
+Progress: 51 / 150
+██████□□□□□□□□□□□□□□ 34%
+
+  Arrays And Hashing: 9
+  Binary Search: 6
+  Graph: 2
+  Linkedlist: 8
+  Sliding Window: 5
+  Stack: 6
+  Trees: 10
+  Two Pointers: 5
 ```
+<!-- END_NEETCODE_150_PROGRESS -->
 
 ## Blind 75
 
